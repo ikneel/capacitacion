@@ -1,0 +1,10 @@
+package com.mx.metodos;
+import com.mx.entidad.Empleado;
+//una interfaz es una plantilla de metodos  vacios sin funcionalidad
+//que pueden ser implementados por cualquier otra clase
+
+public class MetodosEmpleados {
+	
+	public void guardar(Empleado empleado);
+
+}

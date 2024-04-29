@@ -1,0 +1,58 @@
+package com.mx.service;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mx.entidad.Empleado;
+import com.mx.metodos.MetodosEmpleado;
+
+public class ImplementacionEmpleados implements MetodosEmpleado{
+
+	List<Empleado> listaEmpleado = new ArrayList<Empleado>();
+	
+	@Override
+	public void guardar(Empleado empleado) {
+		if(listaEmpleado.isEmpty()) {
+			listaEmpleado.add(empleado);
+			System.out.println("El empleado ha sido registrado");
+		}else {
+			int bandera = 0;
+			for(Empleado e : listaEmpleado) {
+				if(empleado.getNombre().equalsIgnoreCase(e.getNombre()) &&
+						empleado.getApellido().equalsIgnoreCase(e.getApellido())) {
+					System.out.println("El empleado no se registro por que ya existe");
+					bandera = 1;
+					break;
+				}
+			}
+			if (bandera != 1) {
+				listaEmpleado.add(empleado);
+				System.out.println("El empleado ha sido registrado");
+			}
+		}
+	}
+
+	@Override
+	public void editar(Empleado empleado, int indice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(int indice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Empleado buscar(int indice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

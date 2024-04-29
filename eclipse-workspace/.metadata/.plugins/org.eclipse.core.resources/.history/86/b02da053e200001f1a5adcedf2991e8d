@@ -1,0 +1,54 @@
+package fristCrud;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+public class principal {
+	public static void main(String[] args) {
+		//Atributos de la clase auto
+		String matricula;
+		String modelo;
+		String marca;
+		String color;
+		double precio;
+		
+		List<Auto> lista = new ArrayList<Auto>();
+		Auto auto = new Auto();
+		int indice, menu;
+		Scanner entrada;
+		
+		do {
+			System.out.println("\n Menu de Autos:");
+			System.out.println("1.- Alata");
+			System.out.println("2.- Editar");
+			System.out.println("3.- Buscar");
+			System.out.println("4.- Eliminar");
+			System.out.println("5.- Mostrar todos los Autos");
+			System.out.println("6.- Listar todos los Autos");
+			System.out.println("7.- Salir");
+			entrada = new Scanner(System.in);
+			menu = entrada.nextInt();
+			
+			switch (menu) {
+			case 1:
+				break;
+			case 2:
+				break;
+			case 3:
+				break;
+			case 4:
+				break;
+			case 5:
+				break;
+			case 6:
+				break;
+			case 7:
+				break;
+				
+			default: 
+				System.out.println("Opcion Invalida, intenta de nuevo");
+			}
+		}
+		while (menu != 7);
+	}
+}

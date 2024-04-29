@@ -1,0 +1,43 @@
+package com.mx.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mx.entidad.Jefe;
+import com.mx.metodos.MetodosEmpleado;
+
+public class ImplementacionJefe implements MetodosEmpleado {
+
+	List<Jefe> listaJefe = new ArrayList<>();
+
+	@Override
+	public void guardar(Empleado empleado) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(Empleado empleado, int indice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(int indice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Empleado buscar(int indice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

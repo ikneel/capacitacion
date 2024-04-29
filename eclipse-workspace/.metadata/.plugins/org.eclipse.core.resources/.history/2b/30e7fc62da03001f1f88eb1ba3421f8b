@@ -1,0 +1,17 @@
+package com.mx.entidad;
+
+public class Celular {
+	
+	//Atributos
+	String imei;
+	String modelo;
+	String marca;
+	int ram;
+	int almacenamiento;
+	
+	//Constructores
+	
+	public Celular() {
+		
+	}
+}

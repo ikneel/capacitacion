@@ -1,0 +1,92 @@
+package com.mx.service;
+
+import com.mx.entidad.Tienda;
+import com.mx.entidad.Producto;
+import com.mx.metodos.Metodos;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Implementaciones implements Metodos{
+	List<Tienda> listaTiendas = new ArrayList<Tienda>();
+	HashMap<String, Producto> hashProductos = new HashMap<String, Producto>();
+	
+	@Override
+	public void guardar(Object object, String clase) {
+		if(clase.equals("tienda")) {
+			Tienda tienda = (Tienda) object;
+			if(listaTiendas.isEmpty()) {
+				listaTiendas.add(tienda);
+			}else {
+				int bandera = 0;
+				for(Tienda t : listaTiendas) {
+					if(tienda.getNumtienda() == t.getNumtienda() &&
+					   tienda.getNombreTienda().equalsIgnoreCase(t.getNombreTienda())) {
+						if(tienda.getCiudad().equalsIgnoreCase(t.getCiudad())) {
+							System.out.println("Esta tienda no puede registrarse por que ya existe");
+							bandera = 1;
+							break;
+						}
+					}
+				}
+				if (bandera == 0) {
+					listaTiendas.add(tienda);
+					System.out.println("La tienda ha sido registrada");
+				}
+			}
+		}else {
+			Producto producto = (Producto)object;
+			if(hashProductos.isEmpty()) {
+				hashProductos.put(producto.getCodigoBarras(), producto);
+				System.out.println("el producto ha sido registrado");
+			}else {
+				if(hashProductos.containsKey(producto.getCodigoBarras())) {
+					System.out.println("Ese codigo de barras ya existe, intenta con otro");
+				}else {
+					boolean bandera = false;
+					Producto producto_aux;
+					for(String key : hashProductos.keySet()) {
+						producto_aux = hashProductos.get(key);
+						if(producto.getMarca().equalsIgnoreCase(producto_aux.getMarca()) && 
+						   producto.getNombreProducto().equalsIgnoreCase(producto_aux.getNombreProducto())) {
+							System.out.println("Ese producto ya esta registrado");
+							bandera = true;
+							break;
+						}
+					}
+					if(bandera == false) {
+						hashProductos.put(producto.getCodigoBarras(), producto);
+						System.out.println("el producto fue registrado");
+					}
+				}
+			}
+				
+		}
+	}
+
+	@Override
+	public void editar(Object object, int indice, String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(Object object, int indice, String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object buscar(Object object, int indice, String clase) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar(String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

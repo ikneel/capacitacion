@@ -1,0 +1,133 @@
+package ejercicio3_CRUD_validaciones;
+
+import java.util.Scanner;
+
+import personasAuto.Auto;
+import personasAuto.Persona;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		//Atributos de la clase persona
+		String curp;
+		String nombrep;
+		String apellido;
+		int edad;
+		String ciudad;
+		String genero;
+		List<Compra> compras;
+		
+		//Atributos de la clase compra
+		String folio;
+		String nombrec;
+		String descripcion;
+		double precio;
+		String paisOrigen;
+		String categoria;
+		
+		List<Persona> listaPersona = new ArrayList<Persona>();
+		List<Compra> listaCompra = new ArrayList<Compra>();
+		
+		Persona persona = new Persona();
+		Compra compra = new Compra();
+		
+		int menu, menup, menuc, submenu, indice;
+		Scanner entrada;
+		
+		do {
+			System.out.println(" ----Menu Principal---- ");
+			System.out.println("1.- Menu de Personas");
+			System.out.println("2.- Menu de Compras");
+			System.out.println("3.- Listado de compras por personas");
+			System.out.println("4.- Salir");
+			entrada = new Scanner(System.in);
+			menu = entrada.nextInt();
+			
+			switch(menu) {
+			
+			case 1:
+				do {	
+					System.out.println("Menu de Personas");
+					System.out.println("1.- Alta");
+					System.out.println("2.- Editar");
+					System.out.println("3.- Buscar");
+					System.out.println("4.- Eliminar");
+					System.out.println("5.- Mostrar todas las Personas");
+					System.out.println("6.- Listar las Persona por Indice");
+					System.out.println("7.- Regresar al menu principal");
+					
+					entrada = new Scanner(System.in);
+					menup = entrada.nextInt();
+					
+					switch(menup) {
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+					case 7:
+						break;
+					default:
+						System.out.println("Operacion invalida, intente otra vez");
+						break;
+					}
+				}while(menup != 7);
+				break;
+				
+			case 2:
+				do {	
+					System.out.println("Menu de Personas");
+					System.out.println("1.- Alta");
+					System.out.println("2.- Editar");
+					System.out.println("3.- Buscar");
+					System.out.println("4.- Eliminar");
+					System.out.println("5.- Mostrar todas las Compras");
+					System.out.println("6.- Listar Compras por Indice");
+					System.out.println("7.- Regresar al menu principal");
+					
+					entrada = new Scanner(System.in);
+					menuc = entrada.nextInt();
+					
+					switch(menuc) {
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+					case 7:
+						break;
+					default:
+						System.out.println("Operacion invalida, intente otra vez");
+						break;
+					}
+				}while(menuc != 7);
+				break;
+				
+			case 3:
+				break;
+				
+			case 4:
+				break;
+			}
+			
+		}while(menu != 4);
+	}
+}

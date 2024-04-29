@@ -1,0 +1,35 @@
+package com.mx.entidad;
+
+public class Persona {
+	
+	//Atributos
+	
+	String curp;
+	String nombre;
+	String Apellido;
+	int edad;
+	String Ciudad;
+	String genero;
+	
+	//Constructor
+	public Persona() {}
+
+	public Persona(String curp, String nombre, String apellido, int edad, String ciudad, String genero) {
+		super();
+		this.curp = curp;
+		this.nombre = nombre;
+		Apellido = apellido;
+		this.edad = edad;
+		Ciudad = ciudad;
+		this.genero = genero;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona [curp=" + curp + ", nombre=" + nombre + ", Apellido=" + Apellido + ", edad=" + edad
+				+ ", Ciudad=" + Ciudad + ", genero=" + genero + "]";
+	}
+	
+	
+
+}

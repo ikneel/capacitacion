@@ -1,0 +1,42 @@
+package com.mx.service;
+
+import java.util.HashMap;
+
+import com.mx.entidad.Cuenta;
+import com.mx.metodos.MetodosCuenta;
+
+public class ImplementacionCuenta implements MetodosCuenta {
+	
+	HashMap<Integer, Cuenta> hashcuentas = new HashMap<Integer, Cuenta>();
+
+	@Override
+	public void guardar(Cuenta cuenta) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(Cuenta cuenta) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(Cuenta cuenta) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Cuenta buscar(Cuenta Cuenta) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

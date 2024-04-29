@@ -1,0 +1,23 @@
+package personasAuto;
+
+public class Principal {
+	
+	public static void main(String[] args) {
+		
+		//Atributos de la clase auto
+		String matricula;
+		String modelo;
+		String marca;
+		String color;
+		double precio;
+		
+		//Atributos de la clase persona
+		String nombre;
+		String apellido;
+		int edad;
+		String ciudad;
+		String genero;
+		
+	}
+	
+}

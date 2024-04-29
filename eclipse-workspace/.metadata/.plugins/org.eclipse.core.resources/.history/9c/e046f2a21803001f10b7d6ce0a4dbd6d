@@ -1,0 +1,9 @@
+package com.mx.service;
+
+import com.mx.entidad.Mascota;
+import com.mx.entidad.Persona;
+import com.mx.metodos.MetodosMascota;
+
+public class ImplementacionMascotas {
+
+}

@@ -1,0 +1,64 @@
+package com.mx.service;
+
+import com.mx.entidad.Tienda;
+import com.mx.entidad.Persona;
+import com.mx.entidad.Producto;
+import com.mx.metodos.Metodos;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Implementaciones implements Metodos{
+	List<Tienda> listaTiendas = new ArrayList<Tienda>();
+	HashMap<String, Producto> hashProductos = new HashMap<String, Producto>();
+	
+	@Override
+	public void guardar(Object object, String clase) {
+		if(clase.equals("tienda")) {
+			Tienda tienda = (Tienda) object;
+			if(listaTiendas.isEmpty()) {
+				listaTiendas.add(tienda);
+			}else {
+				int bandera = 0;
+				for(Tienda t : listaTiendas) {
+					if(tienda.getNumtienda() == t.getNumtienda() &&
+					   tienda.getNombreTienda().equalsIgnoreCase(t.getNombreTienda())) {
+						System.out.println("La paersona ha registrar ya existe");
+						bandera = 1;
+						break;
+					}
+				}
+				if (bandera == 0) {
+					listaPersonas.add(persona);
+					System.out.println("La persona ha sido registrada");
+				}
+			}
+		}
+	}
+
+	@Override
+	public void editar(Object object, int indice, String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(Object object, int indice, String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object buscar(Object object, int indice, String clase) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar(String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

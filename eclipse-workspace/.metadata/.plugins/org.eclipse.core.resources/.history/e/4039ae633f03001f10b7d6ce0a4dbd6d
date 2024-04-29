@@ -1,0 +1,11 @@
+package com.mx.entidad;
+
+public class Cuenta {
+	
+	//Atributos
+	int numero;
+	double saldo;
+	double adeudo;
+	String tipoCuenta;
+	String Banco;
+}

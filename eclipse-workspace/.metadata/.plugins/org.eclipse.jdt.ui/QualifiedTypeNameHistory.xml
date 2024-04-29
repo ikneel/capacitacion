@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.mx.metodos.MetodosEmpleado"/>
+    <fullyQualifiedTypeName name="com.mx.metodos.MetodosJefee"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Empleado"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Jefe"/>
+    <fullyQualifiedTypeName name="com.mx.service.ImplementacionEmpleados"/>
+    <fullyQualifiedTypeName name="com.mx.service.ImplementacionJefe"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Paciente"/>
+    <fullyQualifiedTypeName name="com.mx.metodos.MetodosMedico"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Mascota"/>
+    <fullyQualifiedTypeName name="com.mx.metodos.MetodosMascota"/>
+    <fullyQualifiedTypeName name="com.mx.metodos.MetodosPersonas"/>
+    <fullyQualifiedTypeName name="com.mx.metodos.MetodosPersona"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Cuenta"/>
+    <fullyQualifiedTypeName name="com.mx.metodos.MetodosCuenta"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Celular"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Persona"/>
+    <fullyQualifiedTypeName name="com.mx.service.Implementacion"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Producto"/>
+    <fullyQualifiedTypeName name="com.mx.metodos.Metodos"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,181 @@
+package ejercicio3_CRUD_validaciones;
+
+import java.util.Scanner;
+
+import personasAuto.Auto;
+import personasAuto.Persona;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Principal {
+
+	public static void main(String[] args) {
+		
+		//Atributos de la clase persona
+		String curp;
+		String nombrep;
+		String apellido;
+		int edad;
+		String ciudad;
+		String genero;
+		List<Compra> compras;
+		
+		//Atributos de la clase compra
+		String folio;
+		String nombrec;
+		String descripcion;
+		double precio;
+		String paisOrigen;
+		String categoria;
+		
+		List<Persona> listaPersona = new ArrayList<Persona>();
+		List<Compra> listaCompra = new ArrayList<Compra>();
+		
+		Persona persona = new Persona();
+		Compra compra = new Compra();
+		
+		int menu, menup, menuc, submenu, indice;
+		Scanner entrada;
+		
+		do {
+			System.out.println(" ----Menu Principal---- ");
+			System.out.println("1.- Menu de Personas");
+			System.out.println("2.- Menu de Compras");
+			System.out.println("3.- Listado de compras por personas");
+			System.out.println("4.- Salir");
+			entrada = new Scanner(System.in);
+			menu = entrada.nextInt();
+			
+			switch(menu) {
+			
+			case 1:
+				do {	
+					System.out.println("Menu de Personas");
+					System.out.println("1.- Alta");
+					System.out.println("2.- Editar");
+					System.out.println("3.- Buscar");
+					System.out.println("4.- Eliminar");
+					System.out.println("5.- Mostrar todas las Personas");
+					System.out.println("6.- Listar las Persona por Indice");
+					System.out.println("7.- Regresar al menu principal");
+					
+					entrada = new Scanner(System.in);
+					menup = entrada.nextInt();
+					
+					switch(menup) {
+					case 1:
+						System.out.println("Ingresa el CURP: ");
+						entrada = new Scanner(System.in);
+						curp = entrada.nextLine();
+						
+						System.out.println("Ingresa el Nombre: ");
+						entrada = new Scanner(System.in);
+						nombrep = entrada.nextLine();
+						
+						System.out.println("Ingresa el apellido:");
+						entrada = new Scanner(System.in);
+						apellido = entrada.nextLine();
+						
+						System.out.println("Ingresa la edad: ");
+						entrada = new Scanner(System.in);
+						edad = entrada.nextInt();
+						if(edad <= 18) {
+							System.out.println("No se pueden registrar personas menores de edad");
+							break;
+						}
+						
+						System.out.println("Ingresa la ciudad: ");
+						entrada = new Scanner(System.in);
+						ciudad = entrada.nextLine();
+						
+						System.out.println("Ingresa el genero: ");
+						entrada = new Scanner(System.in);
+						genero = entrada.nextLine();
+						
+						persona = new Persona(curp, nombrep, apellido, edad, ciudad, genero, new ArrayList<Compra>());
+						
+						if(listaPersona.isEmpty()) {
+							listaPersona.add(persona);
+							System.out.println("La persona ha sido registrada");
+						}else {
+							boolean bandera = false;
+							for (Persona p : listaPersona) {
+								if(persona.getNombre().equalsIgnoreCase(p.getNombre()) && persona.getApellido().equalsIgnoreCase(p.getApellido())) {
+									System.out.println("Esta persona no se registro por que ya existe");
+									bandera = true;									
+									break;		
+								}
+							}
+							if(bandera == false) {
+								listaPersona.add(persona);
+								System.out.println("La persona ha sido registrado");
+							}
+						}
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+					case 7:
+						break;
+					default:
+						System.out.println("Operacion invalida, intente otra vez");
+						break;
+					}
+				}while(menup != 7);
+				break;
+				
+			case 2:
+				do {	
+					System.out.println("Menu de Compras");
+					System.out.println("1.- Alta");
+					System.out.println("2.- Editar");
+					System.out.println("3.- Buscar");
+					System.out.println("4.- Eliminar");
+					System.out.println("5.- Mostrar todas las Compras");
+					System.out.println("6.- Listar Compras por Indice");
+					System.out.println("7.- Regresar al menu principal");
+					
+					entrada = new Scanner(System.in);
+					menuc = entrada.nextInt();
+					
+					switch(menuc) {
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+					case 7:
+						break;
+					default:
+						System.out.println("Operacion invalida, intente otra vez");
+						break;
+					}
+				}while(menuc != 7);
+				break;
+				
+			case 3:
+				break;
+				
+			case 4:
+				System.out.println("Saliendo.... Hecho");
+				break;
+			}
+			
+		}while(menu != 4);
+	}
+}

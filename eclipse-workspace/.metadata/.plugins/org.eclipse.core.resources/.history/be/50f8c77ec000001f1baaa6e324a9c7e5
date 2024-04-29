@@ -1,0 +1,17 @@
+package ejercicio1;
+
+public class principal {
+	public static void main(String[] args) {
+		//Instancia de objeto alumno
+		Alumno alumno1 = new Alumno();
+		
+		//Ingreso de informacion al objeto alumno
+		alumno1.numCuenta = "3261657869";
+		alumno1.nombre = "Jose";
+		alumno1.apellidoPaterno = "Sanchez";
+		alumno1.apellidoMaterno = "Marin";
+		alumno1.carrera = "Ingenieria en Computacion";
+		alumno1.numSemestre = 8;
+		System.out.println(alumno1);
+	}
+}

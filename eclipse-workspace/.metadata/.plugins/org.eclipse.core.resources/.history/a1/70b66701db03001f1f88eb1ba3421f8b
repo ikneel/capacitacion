@@ -1,0 +1,8 @@
+package com.mx.service;
+
+import com.mx.entidad.Persona;
+import com.mx.entidad.Celular;
+
+public class Implementacion implements Metodos{
+
+}

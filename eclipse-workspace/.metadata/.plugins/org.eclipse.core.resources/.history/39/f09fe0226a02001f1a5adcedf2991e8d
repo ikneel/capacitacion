@@ -1,0 +1,85 @@
+package com.mx.principal;
+
+import java.util.Scanner;
+
+import com.mx.entidad.Empleado;
+import com.mx.entidad.Jefe;
+import com.mx.service.ImplementacionEmpleados;
+import com.mx.service.ImplementacionJefe;
+
+public class Principal {
+	public static void main(String[] args) {
+		
+		//Atributos de la clase persona
+		String nombre;
+		String apellido;
+		int edad;
+		String genero;
+		
+		//Atributos de la clase empleado
+		String carrera;
+		
+		//Atributos de la clase jefe
+		String area;
+		
+		ImplementacionEmpleados impEmpleado = new ImplementacionEmpleados();
+		ImplementacionJefe impJefe = new ImplementacionJefe();
+		
+		Empleado empleado = new Empleado();
+		Jefe jefe = new Jefe();
+		
+		int menu, submenu, menuj, menue, indice;
+		Scanner entrada;
+		
+		do {
+			
+			System.out.println("\n Menu Principal");
+			System.out.println("1.- Menu de empleados");
+			System.out.println("2.- Menu de Jefes");
+			System.out.println("3.- Salir");
+			
+			try {
+				entrada = new Scanner(System.in);
+				menu = entrada.nextInt();
+				switch(menu) {
+				case 1:
+					break;  
+				case 2:
+					entrada = new Scanner(System.in);
+					menuj = entrada.nextInt();
+					switch(menuj) {
+					case 1:
+						System.out.println("Ingresa el nombre del jefe: ");
+						entrada = new Scanner(System.in);
+						nombre = entrada.nextInt();
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+					case 7:
+						break;
+						
+					}
+					break;
+				case 3:
+					break;
+				default:
+					System.out.println("Opcion invalida, intenta otra vez");
+					break;
+				}
+				
+				
+				}catch (Exception e) {
+					System.out.println("Error" + e);
+					menu = 4;
+				}
+		}while (menu != 3);
+	}
+}

@@ -1,0 +1,96 @@
+package com.mx.service;
+
+import com.mx.entidad.Persona;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+
+import com.mx.entidad.Celular;
+import com.mx.metodos.Metodos;
+
+public class Implementacion implements Metodos{
+	
+	List<Persona> listaPersonas = new ArrayList<Persona>();
+	HashMap<String, Celular> hashCelulares = new HashMap<String, Celular>();
+	@Override
+	public void guardar(Object object, String clase) {
+		if(clase.equals("persona")) {
+			Persona persona = (Persona) object;
+			if(listaPersonas.isEmpty()) {
+				listaPersonas.add(persona);
+			}else {
+				int bandera = 0;
+				for(Persona p : listaPersonas) {
+					if(persona.getNombre().equalsIgnoreCase(p.getNombre()) &&
+					   persona.getApellido().equalsIgnoreCase(p.getApellido())	) {
+						System.out.println("La paersona ha registrar ya existe");
+						bandera = 1;
+						break;
+					}
+				}
+				if (bandera == 0) {
+					listaPersonas.add(persona);
+					System.out.println("La persona ha sido registrada");
+				}
+			}
+		}else {
+			Celular celular = (Celular)object;
+			if(hashCelulares.isEmpty()) {
+				hashCelulares.put(celular.getImei(), celular);
+				System.out.println("El celular ha sido registrado");
+			}else {
+				if(hashCelulares.containsKey(celular.getImei())) {
+					System.out.println("Este Imei ya existe, intenta con otro");
+				}else {
+					boolean bandera = false;
+					Celular celular_aux;
+					for(String key : hashCelulares.keySet()) {
+						celular_aux = hashCelulares.get(key);
+						if(celular.getMarca().equalsIgnoreCase(celular_aux.getMarca()) &&
+						   celular.getModelo().equalsIgnoreCase(celular_aux.getModelo())) {
+							System.out.println("Este celular ya existe");
+							bandera = true;
+							break;
+						}
+					}
+					if(bandera == false) {
+						hashCelulares.put(celular.getImei(), celular);
+						System.out.println("El celular fue registrado");
+					}
+				}
+			}
+		}
+	}
+
+	@Override
+	public void editar(Object object, int indice, String clase) {
+		if(clase.equals("persona")) {
+			Persona persona = (Persona)object;
+			listaPersonas.set(indice, persona);
+		}else {
+			Celular celular = (Celular)object;
+			hashCelulares.put(celular.getImei(), celular);
+		}
+		
+	}
+
+	@Override
+	public void eliminar(Object object, int indice, String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Object buscar(Object object, int indice, String clase) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar(String clase) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

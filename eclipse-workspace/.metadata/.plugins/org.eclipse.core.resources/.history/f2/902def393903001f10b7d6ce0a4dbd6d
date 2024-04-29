@@ -1,0 +1,42 @@
+package com.mx.service;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
+
+import com.mx.entidad.Persona;
+import com.mx.metodos.MetodosPersonas;
+
+public class ImplementacionPersonas implements MetodosPersonas {
+	List<Persona> listaPersonas = new ArrayList<Persona>();
+	@Override
+	public void guardar(Persona persona) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void editar(Persona persona, int indice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void eliminar(int indice) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Persona buscar(int indice) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void mostrar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,134 @@
+package personasAuto;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.List;
+
+
+public class Principal {
+	
+	public static void main(String[] args) {
+		
+		//Atributos de la clase auto
+		String matricula;
+		String modelo;
+		String marca;
+		String color;
+		double precio;
+		
+		//Atributos de la clase persona
+		String nombre;
+		String apellido;
+		int edad;
+		String ciudad;
+		String genero;
+		
+		List<Persona> listaPersona = new ArrayList<Persona>();
+		List<Auto> listaAuto = new ArrayList<Auto>();
+		
+		Persona persona = new Persona();
+		Auto auto = new Auto();
+		
+		int menu, menua, menup, submenu, indice;
+		Scanner entrada;
+		
+		do {
+			System.out.println("\n Menu pricipal");
+			System.out.println("1.- Registro de Autos");
+			System.out.println("2.- Registro de Personas");
+			System.out.println("3.- Salir");
+			entrada = new Scanner (System.in);
+			menu = entrada.nextInt();
+			switch (menu) {
+			
+			case 1:
+				do {
+					System.out.println("\n Menu Autos");
+					System.out.println("1.- Alta");
+					System.out.println("2.- Editar");
+					System.out.println("3.- Buscar");
+					System.out.println("4.- ELiminar");
+					System.out.println("5.- Mostrar todos los Autos");
+					System.out.println("6.- Listar Autos por Indice");
+					System.out.println("7.- Regresar al menu principal");
+					entrada = new Scanner (System.in);
+					menua = entrada.nextInt();
+					switch (menua) {
+					case 1:
+						System.out.println("Ingresa la matricula: ");
+						entrada = new Scanner(System.in);
+						matricula = entrada.nextLine();
+						
+						System.out.println("Ingresa el modelo: ");
+						entrada = new Scanner(System.in);
+						modelo = entrada.nextLine();
+						
+						System.out.println("Ingresa la marca:");
+						entrada = new Scanner(System.in);
+						marca = entrada.nextLine();
+						
+						System.out.println("Ingresa el color: ");
+						entrada = new Scanner(System.in);
+						color = entrada.nextLine();
+						
+						System.out.println("Ingresa el precio: ");
+						entrada = new Scanner(System.in);
+						precio = entrada.nextDouble();
+						
+						auto = new Auto(matricula, marca, modelo, color, precio);
+						
+						if(listaAuto.isEmpty()) {
+							listaAuto.add(auto);
+							System.out.println("El auto ha sido registrado");
+						}else {
+							for (Auto a : listaAuto) {
+								if(auto.getMatricula().equalsIgnoreCase(a.getMatricula())) {
+									System.out.println("Este auto no se registro por que ya existe");
+								}
+							}
+						}
+						
+						break;
+						
+					case 2:
+						break;
+						
+					case 3:
+						break;
+						
+					case 4:
+						break;
+						
+					case 5:
+						break;
+						
+					case 6:
+						break;
+						
+					case 7:
+						break;
+						
+					default:
+						System.out.println("Ociopn invalida, intente otravez");
+						break;	
+						
+					}
+				} while(menua != 7);
+				break;
+				
+			case 2:
+				break;		
+				
+			case 3:
+				break;		
+				
+			default:
+				System.out.println("Opcion invalida, intente de nuevo");
+				break;
+				
+			}
+			
+		} while (menu != 3);
+	}
+	
+}

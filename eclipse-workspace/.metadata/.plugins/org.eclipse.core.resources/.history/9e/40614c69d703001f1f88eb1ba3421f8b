@@ -1,0 +1,51 @@
+package com.mx.service;
+
+import java.util.HashMap;
+
+import com.mx.entidad.Cuenta;
+import com.mx.metodos.MetodosCuenta;
+
+public class ImplementacionCuenta implements MetodosCuenta {
+	
+	HashMap<Integer, Cuenta> hashcuentas = new HashMap<Integer, Cuenta>();
+
+	@Override
+	public void guardar(Cuenta cuenta) {
+		
+		if (hashcuentas.isEmpty()) {
+			hashcuentas.put(cuenta.getNumero(), cuenta);
+			System.out.println("La cuenta fue registrada");
+		}else {
+			if(hashcuentas.containsKey(cuenta.getNumero())) {
+				System.out.println("El numero de cuenta ya existe");
+			}else {
+				hashcuentas.put(cuenta.getNumero(), cuenta);
+				System.out.println("La cuenta ha sido registrada");
+				}
+			}			
+		}
+		
+	}
+
+	@Override
+	public void editar(Cuenta cuenta) {
+		
+	}
+
+	@Override
+	public void eliminar(Cuenta cuenta) {
+	
+	}
+
+	@Override
+	public Cuenta buscar(Cuenta Cuenta) {
+	
+		return null;
+	}
+
+	@Override
+	public void mostrar() {
+
+	}
+
+}

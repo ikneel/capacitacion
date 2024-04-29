@@ -1,8 +1,0 @@
-package com.mx.service;
-
-import com.mx.entidad.Tienda;
-import com.mx.entidad.Producto;
-import com.mx.metodos.Metodos;
-public class Implementaciones {
-
-}

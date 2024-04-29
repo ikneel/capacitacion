@@ -1,7 +1,7 @@
 package com.mx.principal;
 
-import java.util.ArrayList;
-import java.util.List;
+
+import java.util.HashMap;
 import java.util.Scanner;
 
 import com.mx.entidad.Tienda;
@@ -17,7 +17,7 @@ public class Principal {
 		String colonia;
 		String calle;
 		int numExterior;
-		List<Producto> productos;
+		HashMap<String, Producto> productos;
 		
 		//Atributos de la clase producto
 		String codigoBarras;
@@ -30,7 +30,7 @@ public class Principal {
 		Implementaciones imp = new Implementaciones();
 		Tienda tienda = new Tienda();
 		Producto producto = new Producto();
-		int menu, submenu, menut, menup, indice;
+		int menu, submenu, menut, menup, indice, indice2;
 		Scanner entrada;
 		
 		do {
@@ -51,10 +51,13 @@ public class Principal {
 						System.out.println("4.- Eliminar");
 						System.out.println("5.- Mostrar todas las tiendas");
 						System.out.println("6.- Listar a todas las tiendas");
-						System.out.println("7.- Regresar al menu principal");
+						System.out.println("7.- Calcular ganancia de tienda");
+						System.out.println("8.- Mostrar tiendas en una ciudad");
+						System.out.println("9.- Tienda con mas ganancia");
+						System.out.println("10.- Regresar al menu principal");
 						entrada = new Scanner(System.in);
-						menup = entrada.nextInt();
-						switch(menup) {
+						menut = entrada.nextInt();
+						switch(menut) {
 						case 1:
 							System.out.println("Ingresa el nombre de la tienda");
 							entrada = new Scanner(System.in);
@@ -80,7 +83,7 @@ public class Principal {
 							entrada = new Scanner(System.in);
 							numExterior = entrada.nextInt();
 							
-							tienda = new Tienda(numtienda, nombreTienda, ciudad, colonia, calle, numExterior, new ArrayList<Producto>());
+							tienda = new Tienda(numtienda, nombreTienda, ciudad, colonia, calle, numExterior, new HashMap<String, Producto>());
 							imp.guardar(tienda, "tienda");
 							
 							break;
@@ -169,6 +172,22 @@ public class Principal {
 							imp.listar("tienda");
 							break;
 						case 7:
+							System.out.println("Ingrese el indice de la tienda de la que quiere saber su ganancia:");
+							entrada = new Scanner(System.in);
+							indice = entrada.nextInt();
+									
+							imp.calcularGanancia(indice);
+							break;
+						case 8:
+							System.out.println("Ingrese la ciudad para mostrar sus tiendas");
+							entrada = new Scanner(System.in);
+							ciudad  = entrada.nextLine();
+							imp.tiendasPorCiudad(ciudad);
+							break;
+						case 9:
+							imp.tiendaMasGanancia();
+							break;
+						case 10:
 							System.out.println("Regresando al menu principal");
 							break;
 						default:
@@ -176,7 +195,7 @@ public class Principal {
 							break;
 						
 						}
-					}while(menup != 7);
+					}while(menut != 10);
 					break;
 				case 2:
 					do {
@@ -187,14 +206,20 @@ public class Principal {
 						System.out.println("4.- Eliminar");
 						System.out.println("5.- Mostrar todos los Productos");
 						System.out.println("6.- Listar todos los Productos");
-						System.out.println("7.- Regresar al menu principal");
+						System.out.println("7.- Asignar producto a tienda");
+						System.out.println("8.- Eliminar producto de tienda");
+						System.out.println("9.- Marca con mas productos");
+						System.out.println("10.- Mostrar disponibilidad de producto en tiendas");
+						System.out.println("11.- Mostrar producto con menos stock");
+						System.out.println("12.- Promedio de precio de productos");
+						System.out.println("13.- Regresar al menu principal");
 						
 						entrada = new Scanner(System.in);
 						menup = entrada.nextInt();
 						
 						switch(menup) {
 						case 1:
-							System.out.println("Ingrese el codigo de barras del celular");
+							System.out.println("Ingrese el codigo de barras del producto");
 							entrada = new Scanner(System.in);
 							codigoBarras = entrada.nextLine();
 							
@@ -309,10 +334,66 @@ public class Principal {
 						case 5:
 							imp.mostrar("producto");
 							break;
-						case 6:
+						case 6: 
 							imp.listar("producto");
 							break;
 						case 7:
+							System.out.println("Ingresa el codigo de barras del producto a asignar");
+							entrada = new Scanner(System.in);
+							codigoBarras = entrada.nextLine();
+							producto = new Producto(codigoBarras);
+							producto = (Producto)imp.buscar(producto, 0, "producto");
+							if (producto == null) {
+								System.out.println("El producto no existe");
+								break;
+							}else {
+								System.out.println(producto);
+							}
+							System.out.println("Ingresa el indice de la tienda a asignar el producto:");
+							entrada = new Scanner(System.in);
+							indice = entrada.nextInt();
+							tienda = (Tienda)imp.buscar(null, indice, "tienda");
+							if(tienda == null) {
+								System.out.println("La tienda no existe");
+								break;
+							}else {
+								System.out.println(tienda);;
+							}
+							
+							imp.asignarProducto(producto, indice);
+							
+							break;
+						case 8:
+							System.out.println("Ingresa el indice de la tienda de la que queires eliminar un producto");
+							entrada = new Scanner(System.in);
+							indice = entrada.nextInt();
+							
+							System.out.println("Ingresa el codigo de barras del producto a eliminar");
+							entrada = new Scanner(System.in);
+							codigoBarras = entrada.nextLine();
+							producto = new Producto(codigoBarras);
+							
+							imp.eliminarProductoDeTienda(producto, indice);
+							break;
+						case 9:
+							imp.marcaConMasProductos();
+							break;
+						case 10:
+							System.out.println("Ingresa el nombre del producto");
+							entrada = new Scanner(System.in);
+							nombreProducto = entrada.nextLine();
+							imp.disponibilidadTienda(nombreProducto);
+							break;
+						case 11:
+							System.out.println("Ingresa el indice de la tienda de la que queiras conocer el producto con menos stock");
+							entrada = new Scanner(System.in);
+							indice = entrada.nextInt();
+							imp.menosStock(indice);
+							break;
+						case 12:
+							imp.promedio();
+							break;
+						case 13:
 							System.out.println("Regresando al menu principal");
 							break;
 							
@@ -320,7 +401,7 @@ public class Principal {
 							System.out.println("Opcion invalida,  intente de nuevo");
 							break;
 						}
-					}while(menup != 7);
+					}while(menup != 13);
 					break;
 				case 3:
 					System.out.println("Adios");

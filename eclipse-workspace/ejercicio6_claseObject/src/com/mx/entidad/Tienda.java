@@ -1,5 +1,6 @@
 package com.mx.entidad;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Tienda {
@@ -10,13 +11,13 @@ public class Tienda {
 	String colonia;
 	String calle;
 	int numExterior;
-	List<Producto> productos;
+	HashMap<String, Producto> productos;
 	
 	//Constructores
 	public Tienda() {}
 
 	public Tienda(int numtienda, String nombreTienda, String ciudad, String colonia, String calle, int numExterior,
-			List<Producto> productos) {
+			HashMap<String, Producto> productos) {
 		super();
 		this.numtienda = numtienda;
 		this.nombreTienda = nombreTienda;
@@ -31,7 +32,7 @@ public class Tienda {
 	@Override
 	public String toString() {
 		return "Tienda [numtienda=" + numtienda + ", nombreTienda=" + nombreTienda + ", ciudad=" + ciudad + ", colonia="
-				+ colonia + ", calle=" + calle + ", numExterior=" + numExterior + "]";
+				+ colonia + ", calle=" + calle + ", numExterior=" + numExterior + ", productos=" + productos + "]";
 	}
 	
 	//Encapsulamiento
@@ -83,11 +84,11 @@ public class Tienda {
 		this.numExterior = numExterior;
 	}
 
-	public List<Producto> getProductos() {
+	public HashMap<String, Producto> getProductos() {
 		return productos;
 	}
 
-	public void setProductos(List<Producto> productos) {
+	public void setProductos(HashMap<String, Producto> productos) {
 		this.productos = productos;
 	}
 	

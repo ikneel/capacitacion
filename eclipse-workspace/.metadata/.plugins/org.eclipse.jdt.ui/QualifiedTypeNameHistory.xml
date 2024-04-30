@@ -19,10 +19,13 @@
     <fullyQualifiedTypeName name="com.mx.service.Implementacion"/>
     <fullyQualifiedTypeName name="java.util.Scanner"/>
     <fullyQualifiedTypeName name="com.mx.entidad.Producto"/>
-    <fullyQualifiedTypeName name="com.mx.metodos.Metodos"/>
-    <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="com.mx.entidad.Empleado"/>
     <fullyQualifiedTypeName name="com.mx.entidad.gerente"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.mx.metodos.Metodos"/>
     <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Tienda"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Ropa"/>
+    <fullyQualifiedTypeName name="com.mx.entidad.Comestible"/>
+    <fullyQualifiedTypeName name="java.util.HashMap"/>
 </qualifiedTypeNameHistroy>

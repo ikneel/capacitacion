@@ -43,7 +43,7 @@ public class Ropa extends Producto {
 
 	@Override
 	public double obtenerPrecio() {
-		// TODO Auto-generated method stub
-		return 0;
+		double precioCI = precio + (precio * 0.15);
+		return precioCI;
 	}
 }

@@ -1,5 +1,6 @@
 package com.mx.entidad;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class Tienda {
@@ -10,12 +11,12 @@ public class Tienda {
 	String colonia;
 	int numExterior;
 	
-	List<Comestible> comestibles;
-	List<Ropa> ropa;
+	HashMap<String, Comestible> comestibles;
+	HashMap<String, Ropa> ropa;
 	
 	public Tienda() {}
 	public Tienda(int numTienda, String nomTienda, String ciudad, String colonia, int numExterior,
-			List<Comestible> comestibles, List<Ropa> ropa) {
+			HashMap<String, Comestible> comestibles, HashMap<String, Ropa> ropa) {
 		super();
 		this.numTienda = numTienda;
 		this.nomTienda = nomTienda;
@@ -60,16 +61,16 @@ public class Tienda {
 	public void setNumExterior(int numExterior) {
 		this.numExterior = numExterior;
 	}
-	public List<Comestible> getComestibles() {
+	public HashMap<String, Comestible> getComestibles() {
 		return comestibles;
 	}
-	public void setComestibles(List<Comestible> comestibles) {
+	public void setComestibles(HashMap<String, Comestible> comestibles) {
 		this.comestibles = comestibles;
 	}
-	public List<Ropa> getRopa() {
+	public HashMap<String, Ropa> getRopa() {
 		return ropa;
 	}
-	public void setRopa(List<Ropa> ropa) {
+	public void setRopa(HashMap<String, Ropa> ropa) {
 		this.ropa = ropa;
 	}
 }

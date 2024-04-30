@@ -28,7 +28,7 @@ public class Tienda {
 	@Override
 	public String toString() {
 		return "Tienda [numTienda=" + numTienda + ", nomTienda=" + nomTienda + ", ciudad=" + ciudad + ", colonia="
-				+ colonia + ", numExterior=" + numExterior + ", comestibles=" + comestibles + ", ropa=" + ropa"]";
+				+ colonia + ", numExterior=" + numExterior + ", comestibles=" + comestibles + ", ropa=" + ropa + "]";
 	}
 	public int getNumTienda() {
 		return numTienda;

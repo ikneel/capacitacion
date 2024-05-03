@@ -9,6 +9,10 @@ public class Comestible extends Producto{
 		super();
 	}
 	
+	public Comestible(String codigoBarras) {
+		this.codigoBarras = codigoBarras;
+	}
+	
 	public Comestible(String codigoBarras, String nombre, String marca, double precio, int stock, String tipo) {
 		super(codigoBarras, nombre, marca, precio, stock);
 		this.tipo = tipo;

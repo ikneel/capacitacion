@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 
 public class Tienda {
-	//Atriibutos
+	//Atributos
 	int numTienda;
 	String nomTienda;
 	String ciudad;

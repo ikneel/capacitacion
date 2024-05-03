@@ -10,7 +10,6 @@ public abstract class Producto {
 	
 	//Constructores
 	public Producto() {}
-	
 	public Producto(String codigoBarras) {
 		this.codigoBarras = codigoBarras;
 	}

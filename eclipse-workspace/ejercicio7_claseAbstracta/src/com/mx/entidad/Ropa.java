@@ -10,6 +10,10 @@ public class Ropa extends Producto {
 		super();
 	}
 	
+	public Ropa(String codigoBarras) {
+		this.codigoBarras = codigoBarras;
+	}
+	
 	public Ropa(String codigoBarras, String nombre, String marca, double precio, int stock, String talla,
 			String color) {
 		super(codigoBarras, nombre, marca, precio, stock);
@@ -43,6 +47,7 @@ public class Ropa extends Producto {
 
 	@Override
 	public double obtenerPrecio() {
+		
 		double precioCI = precio + (precio * 0.15);
 		return precioCI;
 	}

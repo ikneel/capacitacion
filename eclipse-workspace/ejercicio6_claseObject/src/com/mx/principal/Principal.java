@@ -17,7 +17,6 @@ public class Principal {
 		String colonia;
 		String calle;
 		int numExterior;
-		HashMap<String, Producto> productos;
 		
 		//Atributos de la clase producto
 		String codigoBarras;
@@ -30,7 +29,7 @@ public class Principal {
 		Implementaciones imp = new Implementaciones();
 		Tienda tienda = new Tienda();
 		Producto producto = new Producto();
-		int menu, submenu, menut, menup, indice, indice2;
+		int menu, submenu, menut, menup, indice;
 		Scanner entrada;
 		
 		do {

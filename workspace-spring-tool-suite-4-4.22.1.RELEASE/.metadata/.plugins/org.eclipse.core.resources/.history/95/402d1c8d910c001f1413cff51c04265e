@@ -1,0 +1,28 @@
+package com.ex.animales.entidad;
+
+@Entity
+@Table(name ="ANIMALES")
+
+public class Animal {
+	
+	@Id
+	@Column(name = "ID_ANIMAL")
+	private int idAnimal;
+	@Column(name = "NOMBRE_ANIMAL")
+	private String nombreAnimal;
+	private String especie;
+	private int edad;
+	private String sexo;
+	
+	public Animal() {}
+
+	public Animal(int idAnimal, String nombreAnimal, String especie, int edad, String sexo) {
+		this.idAnimal = idAnimal;
+		this.nombreAnimal = nombreAnimal;
+		this.especie = especie;
+		this.edad = edad;
+		this.sexo = sexo;
+	}
+	
+	
+}

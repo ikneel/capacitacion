@@ -1,0 +1,5 @@
+package com.ex.animales.dao;
+
+public interface AnimalDao {
+
+}

@@ -1,0 +1,31 @@
+package com.ex.personas.service;
+
+import java.util.List;
+
+import com.ex.personas.entidad.Personas;
+
+public interface MetodosPersona {
+
+	public void guardar(Personas persona);
+	
+	public void editar(Personas persona);
+	
+	public void eliminar(Personas persona);
+	
+	public Personas buscar(Personas persona);
+	
+	public List<Personas> mostrar();
+	
+	public List<Personas> mostrarViejos();
+	
+	public List<Personas> mostrarGenero(String genero);
+	
+	public List<Personas> mostrarCiudad(String ciudad);
+	
+	public void calcularPeso();
+	
+	public Personas buscarCiudadCp(Personas persona, String ciudad, String codigoPostal);
+	
+	public Personas buscarNombreApellidos(Personas persona, String nombre, String apellidop, String apellidom);
+	
+}

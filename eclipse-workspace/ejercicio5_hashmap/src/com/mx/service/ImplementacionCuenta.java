@@ -45,7 +45,9 @@ public class ImplementacionCuenta implements MetodosCuenta {
 
 	@Override
 	public Cuenta buscar(Cuenta Cuenta) {
-		if(hashcuentas.containsKey(Cuenta.getNumero()))
+		if(hashcuentas.containsKey(Cuenta.getNumero())) {
+				
+		}
 		return null;
 	}
 

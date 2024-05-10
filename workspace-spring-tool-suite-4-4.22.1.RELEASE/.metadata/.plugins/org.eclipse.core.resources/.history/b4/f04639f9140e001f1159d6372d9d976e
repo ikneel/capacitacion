@@ -1,0 +1,5 @@
+package com.mx.AutoresLibros.service;
+
+public interface MetodosAutor {
+
+}

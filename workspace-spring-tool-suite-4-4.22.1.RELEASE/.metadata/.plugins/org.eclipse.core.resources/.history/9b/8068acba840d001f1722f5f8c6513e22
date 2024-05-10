@@ -1,0 +1,69 @@
+package com.mx.UnoMuchos2.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.mx.UnoMuchos2.dao.PersonaDao;
+import com.mx.UnoMuchos2.entidad.Persona;
+import com.mx.UnoMuchos2.respuesta.Respuesta;
+
+public class PersonaService implements MetodosPersona {
+	@Autowired
+	PersonaDao dao;
+
+	@Override
+	public Respuesta guardar(Persona persona) {
+		Respuesta rs = new Respuesta();
+		if (persona.getEdad() > 18) {
+			rs.setMensaje("La persona no puede ser registrada por ser menor de edad");
+			rs.setSucces(false);
+			rs.setObj(persona);
+		} else {
+			if (dao.findAll().isEmpty()) {
+				dao.save(persona);
+				rs.setMensaje("La persona ha sido registrada");
+				rs.setSucces(true);
+				rs.setObj(persona);
+				return rs;
+			} else {
+				if (dao.existsById(persona.getCurp())) {
+					rs.setMensaje("Este curp ya esta registrado");
+					rs.setSucces(false);
+					rs.setObj(persona);
+					return rs;
+				}
+				dao.save(persona);
+				rs.setMensaje("La persona fue agregada");
+				rs.setSucces(true);
+				rs.setObj(persona);
+			}
+
+		}
+
+		return null;
+	}
+
+	@Override
+	public Respuesta editar(Persona persona) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Respuesta eliminar(Persona persona) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Respuesta buscar(Persona persona) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Respuesta mostrar(Persona persona) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

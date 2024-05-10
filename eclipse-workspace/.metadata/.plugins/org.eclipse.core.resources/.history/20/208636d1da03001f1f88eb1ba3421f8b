@@ -1,5 +1,0 @@
-package com.mx.metodos;
-
-public interface Metodos {
-	public void guardar(Object object, String clase);
-}

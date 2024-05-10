@@ -1,0 +1,5 @@
+package com.mx.UnoMuchos.dao;
+
+public interface RedDao {
+
+}

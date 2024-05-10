@@ -1,0 +1,193 @@
+package com.mx.UnoMuchos2.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.mx.UnoMuchos2.dao.PersonaDao;
+import com.mx.UnoMuchos2.entidad.Persona;
+import com.mx.UnoMuchos2.respuesta.Respuesta;
+@Service
+public class PersonaService implements MetodosPersona {
+	@Autowired
+	PersonaDao dao;
+
+	@Override
+	public Respuesta guardar(Persona persona) {
+		Respuesta rs = new Respuesta();
+		if (persona.getEdad() < 18) {
+			rs.setMensaje("La persona no puede ser registrada por ser menor de edad");
+			rs.setSucces(false);
+			rs.setObj(persona);
+			return rs;
+		} else {
+			if (dao.findAll().isEmpty()) {
+				dao.save(persona);
+				rs.setMensaje("La persona ha sido registrada");
+				rs.setSucces(true);
+				rs.setObj(persona);
+				return rs;
+			} else {
+				if (dao.existsById(persona.getCurp())) {
+					rs.setMensaje("Este curp ya esta registrado");
+					rs.setSucces(false);
+					rs.setObj(persona);
+					return rs;
+				}
+				dao.save(persona);
+				rs.setMensaje("La persona fue agregada");
+				rs.setSucces(true);
+				rs.setObj(persona);
+				return rs;
+			}
+		}
+	}
+
+	@Override
+	public Respuesta editar(Persona persona) {
+		Respuesta rs = new Respuesta();
+		Persona persona_aux = dao.findById(persona.getCurp()).orElse(null);
+		if(persona_aux == null) {
+			rs.setMensaje("La persona que tratas de editar no esta registrada");
+			rs.setSucces(false);
+			rs.setObj(persona_aux);
+			return rs;
+		}
+		persona_aux.setNombrePersona(persona.getNombrePersona());
+		persona_aux.setApellidoPaterno(persona.getApellidoPaterno());
+		persona_aux.setApellidoMaterno(persona.getApellidoMaterno());
+		persona_aux.setEdad(persona.getEdad());
+		persona_aux.setCiudad(persona.getCiudad());
+		persona_aux.setGenero(persona.getGenero());
+		persona_aux.setPeso(persona.getPeso());
+		persona_aux.setTelefono(persona.getTelefono());
+		
+		for(Persona p : dao.findAll()) {
+			if(persona.getNombrePersona().equalsIgnoreCase(p.getNombrePersona()) && persona.getApellidoPaterno().equalsIgnoreCase(p.getApellidoPaterno())) {
+				if(persona.getApellidoMaterno().equalsIgnoreCase(p.getApellidoMaterno())) {
+					rs.setMensaje("No se puede editar por que ya existe una persona con ese nombre y apellidos");
+					rs.setSucces(false);
+					rs.setObj(p);
+					return rs;
+				}
+			}
+		}
+		dao.save(persona_aux);
+		rs.setMensaje("La persona ha sido editada");
+		rs.setSucces(true);
+		rs.setObj(persona);
+		return rs;
+	}
+
+	@Override
+	public Respuesta eliminar(Persona persona) {
+		Respuesta rs = new Respuesta();
+		Persona persona_aux = dao.findById(persona.getCurp()).orElse(null);
+		if(persona_aux == null) {
+			rs.setMensaje("La persona que tratas de eliminar no esta registrada");
+			rs.setSucces(false);
+			rs.setObj(persona.getCurp());
+			return rs;
+		}else {
+			if(persona_aux.getMascotas().isEmpty()) {
+				rs.setMensaje("La persona ha sido eliminada");
+				rs.setSucces(true);
+				rs.setObj(persona_aux);
+				dao.delete(persona_aux);
+				return rs;
+			}else {
+				rs.setMensaje("Esta persona no se puede eliminar hasta quitar sus mascotas");
+				rs.setSucces(false);
+				rs.setObj(persona_aux.getMascotas());
+				return rs;
+			}
+		}
+	}
+
+	@Override
+	public Respuesta buscar(Persona persona) {
+		Respuesta rs = new Respuesta();
+		persona = dao.findById(persona.getCurp()).orElse(null);
+		if(persona == null) {
+			rs.setMensaje("La persona que buscas no esta registrada");
+			rs.setSucces(false);
+			rs.setObj(null);
+			return rs;
+		}
+		rs.setMensaje("La persona ha sido encontrada");
+		rs.setSucces(true);
+		rs.setObj(persona);
+		return rs;
+	}
+
+	@Override
+	public Respuesta mostrar() {
+		Respuesta rs = new Respuesta();
+		if(dao.findAll().isEmpty()) {
+			rs.setMensaje("No existen personas registradas");
+			rs.setSucces(false);
+			rs.setObj(null);
+			return rs;
+		}
+		rs.setMensaje("Las personas registradas son:");
+		rs.setSucces(true);
+		rs.setObj(dao.findAll());
+		return rs;
+	}
+
+	@Override
+	public Respuesta mostrarGenero(String genero) {
+		Respuesta rs = new Respuesta();
+		List<Persona> lista_aux = new ArrayList<>();
+		for(Persona p : dao.findAll()) {
+			if(p.getGenero().equalsIgnoreCase(genero)) {
+				lista_aux.add(p);			}
+		}
+		rs.setMensaje("Las personas del genero " + genero + " son: ");
+		rs.setSucces(true);
+		rs.setObj(lista_aux);
+		return rs;
+	}
+
+	@Override
+	public Respuesta mostrarViejitos() {
+		Respuesta rs = new Respuesta();
+		List<Persona> lista_aux = new ArrayList<>();
+		if(dao.findAll().isEmpty()) {
+			rs.setMensaje("No hay personas que mostrar");
+			rs.setSucces(false);
+			rs.setObj(null);
+			return rs;
+		}else {
+			for(Persona p : dao.findAll()) {
+				if(p.getEdad() > 49) {
+					lista_aux.add(p);
+				}
+			}
+			rs.setMensaje("Las personas mayores son las siguientes: ");
+			rs.setSucces(true);
+			rs.setObj(lista_aux);
+			return rs;
+		}
+	}
+
+	@Override
+	public Respuesta personaSinMascota() {
+		Respuesta rs = new Respuesta();
+		List<Persona> lista_aux = new ArrayList<>();
+		for(Persona p : dao.findAll()) {
+			System.out.println(p.getMascotas());
+			if (p.getMascotas() == null) {
+				lista_aux.add(p);
+			}
+		}
+		rs.setMensaje("Las personas sin mascota son las siguientes:");
+		rs.setSucces(true);
+		rs.setObj(lista_aux);
+		return rs;
+		
+	}
+
+}

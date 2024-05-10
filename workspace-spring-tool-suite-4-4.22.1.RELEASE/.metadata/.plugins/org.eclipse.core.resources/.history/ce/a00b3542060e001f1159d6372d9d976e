@@ -1,0 +1,115 @@
+package com.ex.personas.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ex.personas.dao.PersonasDao;
+import com.ex.personas.entidad.Personas;
+import com.ex.personas.respuesta.Respuesta;
+
+@Service
+public class PersonasService implements MetodosPersona{
+	@Autowired
+	PersonasDao dao;
+	@Override
+	public Respuesta guardar(Personas persona) {
+	    Respuesta rs = new Respuesta();
+	    
+	   
+	    if (persona.getEdad() < 18) {
+	        rs.setMensaje("La persona no es mayor de edad por lo que no se puede registrar");
+	        rs.setSucces(false);
+	        rs.setObj(persona);
+	        return rs;
+	    }
+	    
+	    
+	    if (dao.existsById(persona.getCurp())) {
+	        rs.setMensaje("La persona no se registró porque su CURP ya está registrado");
+	        rs.setSucces(false);
+	        rs.setObj(persona);
+	        return rs;
+	    }
+	    
+	    dao.save(persona);
+	    rs.setMensaje("La persona se ha registrado");
+	    rs.setSucces(true);
+	    rs.setObj(persona);
+	    return rs;
+	}
+
+
+	@Override
+	public Respuesta editar(Personas persona) {
+		Respuesta rs = new Respuesta();
+		if(dao.existsById(persona.getCurp())) {
+			dao.save(persona);
+			rs.setMensaje("La persona ha sido editada");
+			rs.setSucces(true);
+			rs.setObj(persona);
+		}	
+		dao.save(persona);
+		return rs;
+		
+	}
+
+	@Override
+	public Respuesta eliminar(Personas persona) {
+		Respuesta rs = new Respuesta();
+		dao.delete(persona);
+		return rs;
+		
+	}
+
+	@Override
+	public Respuesta buscar(Personas persona) {
+		Respuesta rs = new Respuesta();
+		persona = dao.findById(persona.getCurp()).orElse(null);
+		return rs ;
+	}
+
+	@Override
+	public List<Personas> mostrar() {
+		List<Personas> lista = (List<Personas>) dao.findAll();
+		return lista;
+	}
+
+	@Override
+	public List<Personas> mostrarViejos() {
+		List<Personas> lista = (List<Personas>) dao.findAll();
+		return lista;
+	}
+
+	@Override
+	public List<Personas> mostrarGenero(String genero) {
+		List<Personas> lista = (List<Personas>) dao.findAll();
+		return lista;
+	}
+
+	@Override
+	public List<Personas> mostrarCiudad(String ciudad) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void calcularPeso() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Personas buscarCiudadCp(Personas persona, String ciudad, String codigoPostal) {
+	
+		return null;
+	}
+
+	@Override
+	public Personas buscarNombreApellidos(Personas persona, String nombre, String apellidop, String apellidom) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

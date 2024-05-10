@@ -1,0 +1,5 @@
+package com.mx.UnoMuchos.service;
+
+public interface MetodosUsuario {
+
+}

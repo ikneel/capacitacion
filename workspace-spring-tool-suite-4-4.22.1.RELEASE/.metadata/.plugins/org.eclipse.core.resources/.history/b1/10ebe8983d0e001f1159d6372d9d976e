@@ -1,0 +1,41 @@
+package com.mx.UnoMuchos2.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.mx.UnoMuchos2.entidad.Mascotas;
+import com.mx.UnoMuchos2.respuesta.Respuesta;
+
+public class MascotasService implements MetodosMascota {
+	@Autowired
+	 
+	@Override
+	public Respuesta guardar(Mascotas mascota) {
+		
+		return null;
+	}
+
+	@Override
+	public Respuesta editar(Mascotas mascota) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Respuesta eliminar(Mascotas mascota) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Respuesta buscar(Mascotas mascota) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Respuesta mostrar(Mascotas mascota) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

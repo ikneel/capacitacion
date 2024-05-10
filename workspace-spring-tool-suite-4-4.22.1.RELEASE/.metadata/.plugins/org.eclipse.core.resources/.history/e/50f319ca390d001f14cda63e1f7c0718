@@ -1,0 +1,57 @@
+package com.ex.personas.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ex.personas.dao.PersonasDao;
+import com.ex.personas.entidad.Personas;
+
+@Service
+public class PersonasService implements MetodosPersona{
+	@Autowired
+	PersonasDao dao;
+	@Override
+	public void guardar(Personas persona) {
+		dao.save(persona);
+		
+	}
+
+	@Override
+	public void editar(Personas persona) {
+		dao.save(persona);
+		
+	}
+
+	@Override
+	public void eliminar(Personas persona) {
+		dao.delete(persona);
+		
+	}
+
+	@Override
+	public Personas buscar(Personas persona) {
+		persona = dao.findById(persona.getCurp()).orElse(null);
+		return persona;
+	}
+
+	@Override
+	public List<Personas> mostrar() {
+		List<Personas> lista = (List<Personas>) dao.findAll();
+		return lista;
+	}
+
+	@Override
+	public List<Personas> mostrarViejos() {
+		List<Personas> lista = (List<Personas>) dao.findAll();
+		return lista;
+	}
+
+	@Override
+	public List<Personas> mostrarGenero(String genero) {
+		List<Personas> lista = (List<Personas>) dao.findAll();
+		return lista;
+	}
+
+}

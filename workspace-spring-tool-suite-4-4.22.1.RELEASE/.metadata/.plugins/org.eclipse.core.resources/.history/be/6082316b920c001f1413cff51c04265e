@@ -1,0 +1,8 @@
+package com.ex.animales.service;
+
+public interface MetodosAnimal {
+	public void guardar(Animal animal);
+	
+	public void editar(Animal, animal);
+	
+}

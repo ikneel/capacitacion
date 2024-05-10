@@ -1,0 +1,5 @@
+package com.ex.animales.service;
+
+public interface MetodosAnimal {
+
+}

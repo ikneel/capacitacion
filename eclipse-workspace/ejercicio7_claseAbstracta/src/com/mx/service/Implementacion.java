@@ -360,7 +360,7 @@ public class Implementacion implements Metodos {
 		Ropa ropa;
 		Comestible comestible;
 		
-		if(producto.equals("ropa")) {	
+		if(clase.equalsIgnoreCase("ropa")) {	
 			for(Tienda t : listaTiendas) {
 				for(String key : t.getRopa().keySet()) {
 					ropa = t.getRopa().get(key);
@@ -461,8 +461,8 @@ public class Implementacion implements Metodos {
 		
 		for(String key : hashRopa.keySet()) {
 			ropa = hashRopa.get(key);
-			if(ropa.getColor().equals(color)) {
-				System.out.println("Penda: " + ropa.getNombre() + "\nMarca: " + ropa.getMarca());
+			if(color.equalsIgnoreCase(ropa.getColor())) {
+				System.out.println("Prenda: " + ropa.getNombre() + "\nMarca: " + ropa.getMarca() + "\n --------------------");
 			}
 		}
 		

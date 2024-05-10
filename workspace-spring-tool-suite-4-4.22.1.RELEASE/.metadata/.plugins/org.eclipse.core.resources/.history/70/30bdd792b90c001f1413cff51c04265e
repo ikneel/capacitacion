@@ -1,0 +1,19 @@
+package com.ex.personas.respuesta;
+
+public class Respuesta {
+	private String mensaje;
+	private boolean succes;
+	private Object obj;
+	
+	public Respuesta() {
+		
+	}
+
+	public Respuesta(String mensaje, boolean succes, Object obj) {
+		this.mensaje = mensaje;
+		this.succes = succes;
+		this.obj = obj;
+	}
+	
+	
+}

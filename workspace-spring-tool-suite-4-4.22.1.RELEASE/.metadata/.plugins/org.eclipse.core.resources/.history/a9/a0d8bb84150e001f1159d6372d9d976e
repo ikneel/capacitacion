@@ -1,0 +1,5 @@
+package com.mx.AutoresLibros.dao;
+
+public interface LibroDao {
+
+}

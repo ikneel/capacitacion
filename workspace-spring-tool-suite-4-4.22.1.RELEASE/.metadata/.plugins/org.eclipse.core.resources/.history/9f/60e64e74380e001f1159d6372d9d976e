@@ -1,0 +1,29 @@
+package com.mx.UnoMuchos2.entidad;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Table(name = "MASCOTAS")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+public class Mascotas {
+	private String curp;
+	private String nombreMascota;
+	private String especie;
+	private Integer edad;
+	private Integer peso;
+	private String sexo;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "CURP_PERSONA")
+	Persona persona;
+}
